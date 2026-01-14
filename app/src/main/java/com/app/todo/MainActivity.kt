@@ -17,7 +17,7 @@ class MainActivity: ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
-            val darkMode = false
+            val darkMode = true
             AppTheme(
                 darkTheme = darkMode
             ) {
