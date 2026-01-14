@@ -6,6 +6,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.app.todo.ui.entry.NewEntryDestination
+import com.app.todo.ui.entry.NewEntryPage
 import com.app.todo.ui.home.HomeDestination
 import com.app.todo.ui.home.HomePage
 
@@ -23,7 +25,21 @@ fun ToDoNavHost(
             route = HomeDestination.route
         ) {
             HomePage(
-                modifier = modifier
+                modifier = modifier,
+                onNewEntry = {
+                    navController.navigate(route = NewEntryDestination.route)
+                }
+            )
+        }
+        composable(
+            route = NewEntryDestination.route
+        ) {
+            NewEntryPage(
+                modifier = modifier,
+                onBack = {
+                    navController.navigate(route = HomeDestination.route)
+
+                }
             )
         }
     }
